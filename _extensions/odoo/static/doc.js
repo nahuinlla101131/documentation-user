@@ -178,6 +178,7 @@ var update_page = function  () {
         log(el_list)
         $navClone.find("li").removeClass("active");
         $link.parents("li").addClass("active");
+        window.location.hash = $(this).prop('hash');
         return false;
       })
     })
