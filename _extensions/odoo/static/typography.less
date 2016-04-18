@@ -1,20 +1,46 @@
-
-
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,900,300italic,400italic);
-
+// =============================================================================
 // Typography
-@font-size-base: 16px;
-@text-color: @doc_text;
+// =============================================================================
 
-@headings-font-family : Lato, sans-serif;
-@headings-color       : @doc_heading;
-@headings-font-weight : 400;
+// Font rendering
+// ----------------------------------------
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-//** Global textual link color.
-a {.transition(color 0.1s linear); }
-@link-color:            darken(@doc_accent,10%);
-@link-hover-color:      @doc_violet;
-@link-hover-decoration: underline;
+// Headings
+// ----------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    text-rendering: geometricPrecision;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+}
+
+h3, h4, h5, h6, .h3, .h4, .h5, .h6 {
+    line-height: 1.4;
+}
+
+h1, h2, .h1, .h2 {
+    font-weight: @fw_light;
+    b, strong, a {
+        font-weight: @fw_regular;
+    }
+}
+
+h3, .h3 {
+    font-weight: @fw_regular;
+    b, strong, a {
+        font-weight: @fw_medium;
+    }
+}
+h4, .h4, h5, h6, .h5, .h6 {
+    font-weight: @fw_semibold;
+    b, strong, a {
+        font-weight: @fw_bold;
+    }
+}
 
 
 #navClone, .navbar-aside {
@@ -31,7 +57,7 @@ main article {
 
   hr {
     margin: -1px 0;
-    border-top: 1px solid @doc_bg;
+    border-top: 1px solid @gray-lightest;
   }
   ul ul, ol ol, ul ol, ol ul {
     margin-top: 0;

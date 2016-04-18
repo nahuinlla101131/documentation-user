@@ -1,12 +1,10 @@
 (function ($) {
-var log = function(data){
-  return console.log(data);
-}
 
 var update_page = function  () {
 
   var
-  $header               = $("header"),
+  $win                  = $(window),
+  $header               = $("header.o_main_header"),
   $main_navbar          = $("#main_navbar"),
   $navbar_aside         = $(".navbar-aside"),
   $navClone             = null,
@@ -23,13 +21,8 @@ var update_page = function  () {
   $main_back            = $("#main-back");
 
   var titleZoom = 1.5,
-           Hgap = 60;
+  wW          = $win.width();
 
-  var nav_h   = $main_navbar.height(),
-  wW          = $(window).width(),
-  titleOffset = ($main.offset().left - $main_back.outerWidth())-15;
-  if($main.hasClass("index")){Hgap = 0}
-  var img_h = $cover_img.height() - Hgap;
   $navbar_aside.find("li").has("ul").addClass("parent");
 
   if ($main.hasClass("index")){
@@ -60,84 +53,68 @@ var update_page = function  () {
   }
 
   var resize = function() {
-    nav_h       = $main_navbar.height();
     wW          = $(window).width();
-    titleOffset = $main.offset().left - $main_back.outerWidth();
-    if($main.hasClass("index")){Hgap = 0}
-    img_h = $cover_img.height() - Hgap;
+
     if($navClone != null){
       resize_aside();
     }
-    header_layout();
   }
 
 
   var header_layout = function  () {
-    var wTop  = $(window).scrollTop();
-    var r = (wTop)/(img_h - 50);
 
-    function rat() {
-      if(r<0) return 0;
-      if(r>1) return 1;
-      return Number(r.toString().match(/^\d+(?:\.\d{0,2})?/));
+    var $header_sub  = $header.find(".o_sub_nav");
+    var headerHeight = $header.outerHeight();
+
+    var isDesktop = undefined;
+    checkMindowMedia();
+    $win.on('resize', checkMindowMedia);
+
+    function checkMindowMedia() {
+      var old = isDesktop;
+      isDesktop = ($win.outerWidth(true) >= 992);
+      if (old !== isDesktop) {
+        onScrollWindow();
+      }
     }
 
-    var ratio = rat();
+    $win.on('scroll', onScrollWindow);
 
-    if (wW >= 768) {
-
-      $title.css({"font-size": "", "position": "", 'transform':'scale('+(1-(titleZoom-1)*ratio)+')'});
-
-      if( (img_h - wTop) > 0 ){
-        $main_navbar[0].style.cssText += "; height: " + (img_h - wTop)+ "px;";
-        $cover_img[0].style.cssText += "; opacity: " + (0.8-ratio) + ";";
-      }
-
-      if (titleOffset > 0) {
-        $main_back.css("margin-right", titleOffset);
-      } else {
-        $main_back.css("margin-right", "");
-      }
-
-      if (ratio == 1) {
-        $main_navbar.css("height","").add($header).addClass("stacked");
-      } else {
-        $main_navbar.add($header).removeClass("stacked");
-      }
-
-      if ($navClone != null && ($aside.css("display") != "none" )) {
-        var gap = $aside.offset().top - 45;
-        if((wTop > gap)) {
-          $navClone.removeClass("hidden");
-          $navbar_aside.addClass("invisible");
-          resize_aside();
-
-          // ScrollSpy
-          // if(!($navClone.hasClass("binded"))){
-          //   $body.scrollspy({target: "#navClone", offset: 100 });
-          //   $navClone.addClass("binded");
-          //   $body.scrollspy('refresh');
-          // }
-        } else {
-          $navClone.addClass("hidden");
-          $navbar_aside.removeClass("invisible");
-        }
-      }
-
-    } else {
-
-      $cover_img.css("opacity","");
-      $title.css({
-        "position": "relative",
-        "height" : "",
-        "transform":"",
-        "font-size": 18
-      });
-      $main_navbar.addClass("stacked").css({
-        "height":"",
-        "margin": 0
-      })
+    function onScrollWindow(e) {
+      $header.toggleClass('o_scrolled', $win.scrollTop() > headerHeight);
     }
+
+    // Menu opening & closing
+    var timer;
+    $header.on('click', '.o_primary_nav .dropdown-toggle', function(e) {
+      e.preventDefault();
+
+      var $a = $(this);
+      clearTimeout(timer);
+
+      $a.parent().toggleClass('open');
+      $a.closest('ul').toggleClass('o_sub_opened', $a.parent().hasClass('open'));
+      if ($a.closest('.o_primary_nav').children('.open').length > 0) {
+        $header.addClass("o_sub_opened");
+      } else {
+        timer = setTimeout(function() {
+          $header.removeClass("o_sub_opened");
+        }, 200);
+      }
+    });
+    $header.on('click', '.o_primary_nav .o_secondary_nav', function(e) {
+      if (e.target === e.currentTarget) {
+        $header.find('.open').removeClass('open');
+        $header.find('.o_sub_opened').andSelf().removeClass('o_sub_opened');
+      }
+    });
+
+    // Mobile menu opening
+    $header.on('click', '.o_mobile_menu_toggle', function(e) {
+      e.preventDefault();
+      $(this).find('i').toggleClass('fa-bars fa-times');
+      $header.toggleClass('o_mobile_menu_opened');
+    });
   };
   header_layout();
 
@@ -175,7 +152,6 @@ var update_page = function  () {
         $('html, body').animate({
           scrollTop: val
         }, 600);
-        log(el_list)
         $navClone.find("li").removeClass("active");
         $link.parents("li").addClass("active");
         window.location.hash = $(this).prop('hash');
@@ -255,7 +231,7 @@ var update_page = function  () {
   var cards_animate = function  (type, speed) {
     type = type || 'in';
     speed = speed || 2000;
-    var $container = $(".container.index"),
+    var $container = $("main.index"),
       $cards = $container.find(".card"),
       $titles = $container.find("h2");
 
@@ -311,13 +287,10 @@ var update_page = function  () {
 
   $(window)
     .on("scroll", function () {
-      header_layout();
       //aside_layout();
     })
     .on("resize", function () {
       resize();
-      header_layout();
-      //aside_layout();
     })
     .trigger("scroll");
 
