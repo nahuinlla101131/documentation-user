@@ -9595,25 +9595,6 @@ header {
     margin-bottom: -50px;
   }
 }
-.card.top {
-  height: 0;
-  margin-bottom: 0;
-  overflow: hidden;
-  position: relative;
-  padding-top: 50%;
-  padding-bottom: 15%;
-}
-@media (min-width: 768px) {
-  .card.top {
-    padding-top: 30%;
-  }
-}
-@media (min-width: 992px) {
-  .card.top {
-    padding-top: 10%;
-    padding-bottom: 15%;
-  }
-}
 #main_title {
   margin: 10px;
 }
@@ -11090,6 +11071,10 @@ main.index.animating .card {
 }
 .card.top {
   background: #9e588b;
+  padding: 10% 0 8%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
   -webkit-animation: fadeIn 1s;
   -o-animation: fadeIn 1s;
   animation: fadeIn 1s;
@@ -11110,16 +11095,80 @@ main.index.animating .card {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .card.top {
+    padding-top: 12%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .card.top {
+    padding-bottom: 7%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card.top {
+    padding-bottom: 6%;
+  }
+}
 .card.top .container {
   position: relative;
 }
 .card.top .container h1 {
+  font-family: "Work Sans", sans-serif;
+  line-height: 1.1;
+  color: #21313a;
+  margin-top: 21px;
+  margin-bottom: 10.5px;
+  font-size: 32px;
+  text-rendering: geometricPrecision;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  font-weight: 300;
   color: white;
 }
-@media (min-width: 992px) {
-  .card.top {
-    padding-top: 10%;
-    padding-bottom: 15%;
+.card.top .container h1 small,
+.card.top .container h1 .small {
+  font-weight: normal;
+  line-height: 1;
+  color: #21313a;
+}
+.card.top .container h1 small,
+.card.top .container h1 .small {
+  font-size: 65%;
+}
+.card.top .container h1 b,
+.card.top .container h1 strong,
+.card.top .container h1 a {
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .card.top .container h1 {
+    font-family: "Work Sans", sans-serif;
+    line-height: 1.1;
+    color: #21313a;
+    margin-top: 21px;
+    margin-bottom: 10.5px;
+    font-size: 39px;
+    text-rendering: geometricPrecision;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    font-weight: 300;
+    color: white;
+  }
+  .card.top .container h1 small,
+  .card.top .container h1 .small {
+    font-weight: normal;
+    line-height: 1;
+    color: #21313a;
+  }
+  .card.top .container h1 small,
+  .card.top .container h1 .small {
+    font-size: 65%;
+  }
+  .card.top .container h1 b,
+  .card.top .container h1 strong,
+  .card.top .container h1 a {
+    font-weight: 400;
   }
 }
 .card-img {

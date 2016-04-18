@@ -173,9 +173,12 @@ main.index {
   }
 }
 
-
 .card.top {
   background: @odoo-brand-primary;
+  padding: 10% 0 8%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
   .animation(fadeIn 1s);
   .box-shadow(none);
   .transform-origin(0px 0px 0px);
@@ -188,17 +191,27 @@ main.index {
   &:hover {
     .box-shadow(none);
   }
+  @media screen and (min-width: @screen-sm-min) and (max-width: (@screen-md-min - 1)) {
+    padding-top: 12%;
+  }
+  @media screen and (min-width: @screen-md-min) {
+    padding-bottom: 7%;
+  }
+  @media screen and (min-width: @screen-lg-min) {
+    padding-bottom: 6%;
+  }
 
   .container {
     position: relative;
     h1 {
+      .h2;
       color: white;
-    }
-  }
 
-  @media (min-width:@screen-md-min) {
-    padding-top: 10%;
-    padding-bottom: 15%;
+      @media screen and (min-width: @screen-sm-min) {
+        .h1;
+        color: white;
+      }
+    }
   }
 }
 
