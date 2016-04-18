@@ -154,7 +154,7 @@
                 </div>
               </div>
             </div>
-            <a href="/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
           </div>
         </li>
         <li><a href="https://www.odoo.com/page/page/tour">Tour</a></li>
@@ -182,7 +182,7 @@
         </a>
         <div class="collapse navbar-collapse">
           <div class="call-to-action navbar-right">
-            <a href="/trial" class="btn btn-primary">Start Now</a>
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
           </div>
           {% if versions %}
           <ul class="nav navbar-nav navbar-right">
@@ -218,30 +218,32 @@
   {% else %}
     {% set container = 'container' %}
   {% endif %}
-  <div id="wrap" class="{{ container }}">
-    <main class="container-fluid {{ ' '.join(classes) }}">
-      {% if pagename != master_doc %}
-      <div class="row">
-        {% if 'has-toc' not in meta %}
-        <aside>
-          <div class="navbar-aside text-center">
-            {{ toc }}
-            {% if github_link %}
-            <p class="gith-container"><a href="{{ github_link(mode='edit') }}" class="gith-link">
-                Edit on GitHub
-            </a></p>
-            {% endif %}
-          </div>
-        </aside>
-        {% endif %}
-        <article class="doc-body {% if 'has-toc' in meta %}doc-toc{% endif %}">
+  <div id="wrap">
+    <div class="{{ container}}">
+      <main class="container-fluid {{ ' '.join(classes) }}">
+        {% if pagename != master_doc %}
+        <div class="row">
+          {% if 'has-toc' not in meta %}
+          <aside>
+            <div class="navbar-aside text-center">
+              {{ toc }}
+              {% if github_link %}
+              <p class="gith-container"><a href="{{ github_link(mode='edit') }}" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              {% endif %}
+            </div>
+          </aside>
           {% endif %}
-          {% block body %} {% endblock %}
-        {% if pagename != master_doc %}</article>
-      </div>
-      {% endif %}
-      <div id="mask"></div>
-    </main>
+          <article class="doc-body {% if 'has-toc' in meta %}doc-toc{% endif %}">
+            {% endif %}
+            {% block body %} {% endblock %}
+          {% if pagename != master_doc %}</article>
+        </div>
+        {% endif %}
+        <div id="mask"></div>
+      </main>
+    </div>
   </div>
 
   <div class="floating_action_container">
@@ -259,4 +261,76 @@
       </ul>
     </div>
   </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 {%- endblock -%}

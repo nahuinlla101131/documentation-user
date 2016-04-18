@@ -15,6 +15,7 @@
 @import "layout";
 
 @import "header";
+@import "footer";
 
 @import "print";
 
@@ -63,6 +64,13 @@
       }
     }
   }
+}
+
+#wrap {
+  z-index: 1;
+  position: relative;
+  background: @gray-lightest;
+  padding-bottom: 40px;
 }
 
 main {
@@ -872,18 +880,6 @@ pre {
 // Theme tutorial
 #thinking-modular > .clearfix.themes {
   margin-bottom: 3em;
-}
-
-
-
-footer {
-  display: none;
-  ///  <----------------
-  background-color: black;
-  color: white;
-  clear: both;
-  text-align: center;
-  padding: 5px;
 }
 
 

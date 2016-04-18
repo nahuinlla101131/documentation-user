@@ -13,6 +13,7 @@ var update_page = function  () {
   $body                 = $("body"),
   $main                 = $("main"), // remove
   $aside                = $("aside"),
+  $footer               = $body.find('>footer'),
   $mask                 = $("#mask"),
   $title                = $("#main_title"),
   $cardTop              = $(".card.top")
@@ -159,6 +160,44 @@ var update_page = function  () {
       })
     })
   }
+  var footer_animation = function () {
+
+    var footer_effect = $win.width() > 764
+                        && $main.outerHeight() >= $win.outerHeight();
+
+    $footer.toggleClass('o_footer_effect', footer_effect);
+
+    if (!footer_effect) {
+      return;
+    };
+
+    var checkFooterSize = function () {
+        $footer.parent().css('padding-bottom', ($win.width() <= 764) ? 0 : $footer.outerHeight());
+    };
+    checkFooterSize();
+
+    $win.on('resize', checkFooterSize());
+
+    var checkIfSearch = function (e) {
+      console.log(e);
+      if ((e.ctrlKey || e.metaKey) && String.fromCharCode(e.which).toLowerCase() === 'f') {
+        footer_stop();
+      }
+    };
+
+    $win.on('keydown', function(e){
+      checkIfSearch(e);
+    });
+
+    var footer_stop = function() {
+      $footer.removeClass('o_footer_effect');
+      $footer.parent().css('padding-bottom', 0);
+      $win.off('resize', checkFooterSize);
+      $win.off('keydown', checkIfSearch);
+    };
+
+  };
+  footer_animation();
 
 
   var ripple_animation = function(el_list) {
