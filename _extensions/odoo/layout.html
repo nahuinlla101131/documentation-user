@@ -204,21 +204,21 @@
     </nav>
   </header>
 
-  <figure class="card top">
-    <span class="card-img" {% if meta['banner'] %}style="background-image: url('{{ pathto('_static/' + meta['banner'], True) }}');"{% endif %}></span>
-    <div class="container text-center">
-      <h1> {{ meta.get('main-title', title) }} </h1>
-    </div>
-  </figure>
 {%- endblock -%}
 
 {%- block content -%}
-  {% if 'code-column' in meta %}
-    {% set container = 'container-fluid' %}
-  {% else %}
-    {% set container = 'container' %}
-  {% endif %}
   <div id="wrap">
+    <figure class="card top">
+      <span class="card-img" {% if meta['banner'] %}style="background-image: url('{{ pathto('_static/' + meta['banner'], True) }}');"{% endif %}></span>
+      <div class="container text-center">
+        <h1> {{ meta.get('main-title', title) }} </h1>
+      </div>
+    </figure>
+    {% if 'code-column' in meta %}
+    {% set container = 'container-fluid' %}
+    {% else %}
+    {% set container = 'container' %}
+    {% endif %}
     <div class="{{ container}}">
       <main class="container-fluid {{ ' '.join(classes) }}">
         {% if pagename != master_doc %}
