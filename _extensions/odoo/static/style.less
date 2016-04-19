@@ -506,7 +506,7 @@ aside{
   .box-shadow(inset 0px 0 40px rgba(114, 122, 142, .1));
   &.affix {
     z-index: 2;
-    top: 45px;
+    top: @w-sub-nav-height - 1;
     position:fixed;
     backface-visibility: hidden;
     @media (max-width:@screen-md-min) {
@@ -714,13 +714,13 @@ aside{
   padding: 16px;
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
   background-color: @brand-primary;
-  .transition(transform 500ms @o-ease );
+  .transition(transform 500ms @o-ease);
 
   i {
     color: white;
   }
   &.active {
-    transform: translateZ(0px) rotateZ(-180deg);
+    .transform(~"translateZ(0px) rotateZ(-180deg)");
   }
 }
 #floating_action_menu {
@@ -776,7 +776,7 @@ aside{
   &.active {
     display: block;
     visibility: visible;
-    .transition(all 500ms @o-ease -2);
+    .transition(all 500ms @o-ease);
 
     .bubble, &:before {
       .size(1000px; 2000px);
@@ -785,7 +785,7 @@ aside{
       margin-right: -500px;
       margin-bottom: -500px;
       display: block;
-      .transition(all .4s @o-ease -2);
+      .transition(all .4s @o-ease);
     }
     &:before {
       .opacity(1);
@@ -794,7 +794,7 @@ aside{
       position: relative;
       z-index: 1;
       .opacity(1);
-      .transition(all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19));
+      .transition(all 500ms @ease-material-3);
     }
   }
 }

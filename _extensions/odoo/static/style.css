@@ -11528,7 +11528,7 @@ aside {
 .navbar-aside.affix,
 #navClone.affix {
   z-index: 2;
-  top: 45px;
+  top: 39px;
   position: fixed;
   backface-visibility: hidden;
 }
@@ -11775,6 +11775,10 @@ aside {
   color: white;
 }
 #floating_action.active {
+  -webkit-transform: translateZ(0px) rotateZ(-180deg);
+  -moz-transform: translateZ(0px) rotateZ(-180deg);
+  -ms-transform: translateZ(0px) rotateZ(-180deg);
+  -o-transform: translateZ(0px) rotateZ(-180deg);
   transform: translateZ(0px) rotateZ(-180deg);
 }
 #floating_action_menu {
@@ -11848,9 +11852,9 @@ aside {
 #floating_action_menu.active {
   display: block;
   visibility: visible;
-  -webkit-transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1) -2;
-  -o-transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1) -2;
-  transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1) -2;
+  -webkit-transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
+  -o-transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
 }
 #floating_action_menu.active .bubble,
 #floating_action_menu.active:before {
@@ -11862,9 +11866,9 @@ aside {
   margin-right: -500px;
   margin-bottom: -500px;
   display: block;
-  -webkit-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1) -2;
-  -o-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1) -2;
-  transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1) -2;
+  -webkit-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+  -o-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
 }
 #floating_action_menu.active:before {
   opacity: 1;
@@ -11875,9 +11879,9 @@ aside {
   z-index: 1;
   opacity: 1;
   filter: alpha(opacity=100);
-  -webkit-transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -o-transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -webkit-transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media (min-width: 1200px) {
   main.has_code_col .doc-aside {
