@@ -11070,7 +11070,12 @@ main.index.animating .card {
   transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
 }
 .card.top {
-  background: #9e588b;
+  background: #75526b;
+  background: -webkit-linear-gradient(99deg, #875a7b 10%, #62495b 90%);
+  background: -moz-linear-gradient(99deg, #875a7b 10%, #62495b 90%);
+  background: -ms-linear-gradient(99deg, #875a7b 10%, #62495b 90%);
+  background: -o-linear-gradient(99deg, #875a7b 10%, #62495b 90%);
+  background: linear-gradient(99deg, #875a7b 10%, #62495b 90%);
   padding: 10% 0 8%;
   position: relative;
   overflow: hidden;
@@ -11080,10 +11085,10 @@ main.index.animating .card {
   animation: fadeIn 1s;
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transform-origin: 0px 0px 0px;
-  -moz-transform-origin: 0px 0px 0px;
-  -ms-transform-origin: 0px 0px 0px;
-  transform-origin: 0px 0px 0px;
+  -webkit-transform-origin: 50% 0px 0px;
+  -moz-transform-origin: 50% 0px 0px;
+  -ms-transform-origin: 50% 0px 0px;
+  transform-origin: 50% 0px 0px;
 }
 .card.top.stacked {
   background: transparent;
@@ -11097,17 +11102,7 @@ main.index.animating .card {
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .card.top {
-    padding-top: 12%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .card.top {
-    padding-bottom: 7%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .card.top {
-    padding-bottom: 6%;
+    padding: 12% 0 8%;
   }
 }
 .card.top .container {
@@ -11172,13 +11167,15 @@ main.index.animating .card {
   }
 }
 .card-img {
-  top: 0;
-  left: 0;
   display: block;
-  position: absolute;
-  background-image: url("img/geometric_gradient.png");
+  background-image: url("img/banner_bg.png");
   background-size: cover;
   background-position: 50%;
+  position: absolute;
+  top: 0;
+  left: auto;
+  bottom: auto;
+  right: 0;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   width: 100%;

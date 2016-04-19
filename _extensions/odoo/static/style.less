@@ -174,14 +174,14 @@ main.index {
 }
 
 .card.top {
-  background: @odoo-brand-primary;
   padding: 10% 0 8%;
   position: relative;
   overflow: hidden;
   margin: 0;
+  .o-gradient();
   .animation(fadeIn 1s);
   .box-shadow(none);
-  .transform-origin(0px 0px 0px);
+  .transform-origin(50% 0px 0px);
 
   &.stacked{
     background:transparent;
@@ -191,14 +191,9 @@ main.index {
   &:hover {
     .box-shadow(none);
   }
+
   @media screen and (min-width: @screen-sm-min) and (max-width: (@screen-md-min - 1)) {
-    padding-top: 12%;
-  }
-  @media screen and (min-width: @screen-md-min) {
-    padding-bottom: 7%;
-  }
-  @media screen and (min-width: @screen-lg-min) {
-    padding-bottom: 6%;
+    padding: 12% 0 8%;
   }
 
   .container {
@@ -216,13 +211,11 @@ main.index {
 }
 
 .card-img {
-  top: 0;
-  left: 0;
   display: block;
-  position: absolute;
-  background-image: url("img/geometric_gradient.png");
+  background-image: url("img/banner_bg.png");
   background-size: cover;
   background-position: 50%;
+  .o-position-absolute(0, 0);
   .translate3d(0;0;0);
   .square(100%);
 }
