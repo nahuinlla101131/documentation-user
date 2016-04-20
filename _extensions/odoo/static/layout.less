@@ -14,7 +14,6 @@
   position: absolute;
   width: 43%;
   height: 100%;
-  //z-index: 0;
   top: 0;
   right: 0;
 }
@@ -23,27 +22,17 @@
 body, header {
   position: relative;
 }
-// @w-size-xlarge : 1440px;
 
-#main_navbar{
-  .container-fluid {
-    // @media screen and (min-width: @screen-md-min){
-    //   padding: 0;
-    // }
-    .navbar-header {
-      li { float:left}
+// Index layout
+#wrap {
+  > .container.index {
+    background-color: @gray-lightest;
+    width: 100%;
+    position: relative;
+
+    > .index {
+      .container;
     }
-  }
-  // .navbar-nav {
-  //   @media screen and (max-width: @screen-md-min){
-  //     margin: 0;
-  //   }
-  // }
-}
-
-header{
-  @media (min-width:@screen-sm) {
-    margin-bottom: -50px;
   }
 }
 

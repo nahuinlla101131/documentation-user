@@ -219,7 +219,7 @@
     {% else %}
     {% set container = 'container' %}
     {% endif %}
-    <div class="{{ container}}">
+    <div class="{{ container}} {{ ' '.join(classes) }}">
       <main class="container-fluid {{ ' '.join(classes) }}">
         {% if pagename != master_doc %}
         <div class="row">
