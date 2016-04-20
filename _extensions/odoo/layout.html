@@ -184,6 +184,20 @@
           <div class="call-to-action navbar-right">
             <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
           </div>
+          {% if languages %}
+          <ul class="navbar-nav navbar-right nav">
+            <li class="languages">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                {{ language }} <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                {% for name, url in languages %}
+                  <li><a href="{{ url }}">{{ name }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+          {% endif %}
           {% if versions %}
           <ul class="nav navbar-nav navbar-right">
             <li class="versions">
