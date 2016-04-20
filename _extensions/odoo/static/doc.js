@@ -17,6 +17,7 @@
             $sub_nav    = $header.find(".o_sub_nav");
             $wrap       = $body.find('> #wrap'),
             $card_top   = $wrap.find('> .card.top'),
+            $card_top_t = $card_top.find('> .container'),
             $main       = $wrap.find('main'),
             $footer     = $body.find('> footer');
 
@@ -253,11 +254,17 @@
         };
 
         var card_top_animation = function (win_top){
-            var scrollFactor = 1.2,
+            var scrollFactor = 1.6,
                 bannerHeight = Math.max(450, $card_top.outerHeight(true) - 60),
-                top          = Math.min(win_top, bannerHeight/scrollFactor);
+                top          = Math.min(win_top, bannerHeight/scrollFactor),
+                base_value   = top * (scrollFactor - 1),
+                opacity      = top/bannerHeight * scrollFactor;
 
-            $card_top.css('transform', 'translateY(' + ( top * (scrollFactor - 1)) + 'px)');
+            $card_top.css('transform', 'translateY(' + base_value + 'px)');
+            $card_top_t.css({
+                'transform' : 'translateY( -' + ( base_value - (top/2))  + 'px)',
+                'opacity'   : 1 - opacity
+            });
         }
 
         $(".content-switcher").each(function(index, switcher) {
