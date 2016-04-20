@@ -168,6 +168,16 @@ main.index {
   }
 }
 
+.card-img {
+  .o-gradient();
+  .o-position-absolute(0, 0);
+  .translate3d(0;0;0);
+  .square(100%);
+  display: block;
+  background-size: cover;
+  background-position: 50%;
+}
+
 .card.top {
   padding: 10% 0 8%;
   position: relative;
@@ -183,8 +193,22 @@ main.index {
     .transition(background 1s);
   }
 
+  &:before {
+    content:"";
+    display: block;
+    background-image: url("img/banner_bg.png");
+    background-size: cover;
+    background-position: 50%;
+    .o-position-absolute(0, 0);
+    .square(100%);
+  }
+
   &:hover {
     .box-shadow(none);
+  }
+
+  .card-img {
+    background-image: url("img/banner_bg.png");
   }
 
   @media screen and (min-width: @screen-sm-min) and (max-width: (@screen-md-min - 1)) {
@@ -205,14 +229,16 @@ main.index {
   }
 }
 
-.card-img {
-  display: block;
-  background-image: url("img/banner_bg.png");
-  background-size: cover;
-  background-position: 50%;
-  .o-position-absolute(0, 0);
-  .translate3d(0;0;0);
-  .square(100%);
+.card.top.has_banner {
+  background: @footer-bg-color;
+
+  &:before {
+    display: none;
+  }
+
+  .card-img {
+    opacity: 0.35;
+  }
 }
 
 // the first level of an application toctree should look more like sections
