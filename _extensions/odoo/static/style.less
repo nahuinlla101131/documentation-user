@@ -242,6 +242,10 @@ main.index {
   .box-shadow(none);
   .transform-origin(50% 0px 0px);
 
+  #wrap.index & {
+    padding: 0 0 4%;
+  }
+
   &.stacked{
     background:transparent;
     .transition(background 1s);
@@ -267,6 +271,10 @@ main.index {
 
   @media screen and (min-width: @screen-sm-min) and (max-width: (@screen-md-min - 1)) {
     padding: 12% 0 8%;
+
+    #wrap.index & {
+      padding: 12% 0 4%;
+    }
   }
 
   .container {

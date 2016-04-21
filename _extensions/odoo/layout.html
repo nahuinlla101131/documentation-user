@@ -221,7 +221,7 @@
 {%- endblock -%}
 
 {%- block content -%}
-  <div id="wrap">
+  <div id="wrap" class="{{' '.join(classes) }}">
     {% if meta['banner'] %}
     {% set has_banner = 'has_banner' %}
     {% endif %}
