@@ -16,8 +16,11 @@
 
 
 
-// Header
-// -----------------------------------
+// Documentation header's customizations
+// --------------------------------------
+// Header style is based on odoo.com and can be find in the header.less file.
+// The following rules are specific for the documentation website.
+
 .o_main_header {
   .o_sub_nav {
     .collapse .nav {
@@ -25,6 +28,56 @@
 
       &:first-of-type {
         margin-right: -15px;
+      }
+
+      > li.toctree-l1 {
+        margin: 0;
+
+        > a {
+          padding:0 10px;
+        }
+
+        &.dropdown {
+          > a.dropdown-toggle {
+            padding: 0 15px 0 10px;
+
+            &:after {
+              .mdi-icon("\e7c1");
+              .o-position-absolute(0,0);
+            }
+          }
+
+          &.open {
+            background-color: @w-header-white;
+            color: @header-link-normal;
+
+            .dropdown-toggle {
+              color: @header-link-normal;
+              &:hover {
+                color: @headings-color;
+              }
+            }
+
+            .dropdown-menu {
+              background-color: @w-header-white;
+              margin-top: 0;
+              border: none;
+              border-radius: 0;
+              text-align: left;
+              min-width: 100%;
+              padding-bottom: @w-header-height/4;
+              .deep-1();
+
+              > li > a {
+                display       : block;
+                color         : @header-link-normal;
+                float         : none;
+                text-transform: none;
+                font-weight   : normal;
+              }
+            }
+          }
+        }
       }
     }
 
