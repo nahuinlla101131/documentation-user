@@ -181,7 +181,7 @@ main.index {
     figcaption {
       .opacity(1);
       display: block;
-      font-weight: 400;
+      font-weight: @fw_regular;
       font-family: @headings-font-family;
       color: @headings-color;
       margin: 0;
@@ -336,7 +336,7 @@ main .alert {
     line-height: 1em;
     margin: 0 0 10px 0;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: @fw_bold;
     font-family: @headings-font-family;
 
     &:before {
@@ -446,12 +446,12 @@ main .alert {
 }
 
 .pq-patch{
-  background: rgb(194, 194, 194);
+  background: @gray-light;
   em {padding-left: 10px;}
 }
 
 span.menuselection{
-  font-weight: bold;
+  font-weight: @fw_semibold;
 }
 
 .list-group-item {
@@ -462,12 +462,12 @@ span.menuselection{
 dt {  margin: .5em 0 .3em;}
 
 blockquote {
-  font-family: Georgia, serif;
-  font-weight: bold;
+  font-family: @font-family-serif;
+  font-weight: @fw_semibold;
   font-style: italic;
 
   footer {
-    font-family: sans-serif;
+    font-family: @font-family-base;
     background: transparent;
     text-align: left;
     color: @text-color;
@@ -483,7 +483,7 @@ blockquote {
   }
 }
 code, .code {
-  font-weight: bold;
+  font-weight: @fw_semibold;
   color: darken(@brand-primary, 30%);
   background-color: lighten(@brand-primary, 50%);
 }
@@ -496,7 +496,8 @@ dd {
 
 .code-fields {
   font-size: .9em;
-  border: 2px solid #EAEAEA;
+  border: 2px solid @gray-light;
+
   .code-field {
   }
 
@@ -504,8 +505,9 @@ dd {
   }
 
   .code-field-name {
-    font-weight: bold;
+    font-weight: @fw_semibold;
     color: @headings-color;
+
     &:after{
       content:":";
     }
@@ -525,7 +527,7 @@ dd {
     em {
       color: @headings-color;
       font-family:@font-family-monospace;
-      font-weight: bold;
+      font-weight: @fw_semibold;
       font-size: .9em;
     }
   }
@@ -585,7 +587,7 @@ article.doc-body {
 
     > li {
       color: lighten(@headings-color, 30%);
-      font-weight: bold;
+      font-weight:  @fw_semibold;
       border-bottom: 1px solid lighten(@doc_code-bg, 30%);
       margin: 5px;
       font-size: 1.3em;
@@ -613,10 +615,10 @@ article.doc-body {
 }
 
 pre {
-  color: #e7e9db;
+  color: @gray-light;
   background: @doc_code-bg;
-  font-family: monospace;
-  font-weight: bold;
+  font-family: @font-family-monospace;
+  font-weight:  @fw_semibold;;
   position: relative;
   border: none;
   max-width: 100%;
@@ -631,7 +633,7 @@ pre {
   top: 0;
   left: 0;
   .size(100%; 0);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: fade(black, 20%);
   .transition(opacity .3s);
 
   &.active {
