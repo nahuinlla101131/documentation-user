@@ -199,13 +199,16 @@
   transform         : @args;
 }
 
-.mdi-icon {
-  font-family: 'Material-Design-Icons';
-  display: inline-block;
-  text-rendering: geometricPrecision;
+//-- Material Design Icons
+.mdi-icon(@content) {
+    font-family: 'Material-Design-Icons';
+    content: @content;
+    display: inline-block;
+    text-rendering: geometricPrecision;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 .keyframes(@name; @arguments) {
   @-moz-keyframes @name { @arguments(); }
