@@ -615,6 +615,16 @@ article.doc-body {
   }
 }
 
+.highlight {
+  background: @doc_code-bg;
+  color: @gray-light;
+  border-radius: @border-radius-base;
+  margin-bottom: (@line-height-computed / 2);
+  pre {
+    margin-bottom:  0;
+  }
+}
+
 pre {
   color: @gray-light;
   background: @doc_code-bg;
@@ -625,6 +635,7 @@ pre {
   max-width: 100%;
   overflow: auto;
   margin: 0;
+  margin-bottom: (@line-height-computed / 2);
 }
 
 #mask {
