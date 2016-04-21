@@ -91,13 +91,15 @@ main{
 }
 
 main.has_code_col{
-  width: 100%;
+  .container;
 
   aside {
     display: none;
   }
 
   article.doc-body {
+    width: 100%;
+
     > *{
       max-width: 100%;
     }
@@ -116,7 +118,8 @@ main.has_code_col{
       }
       section {
         > * {
-          width: 55.633333%;
+          width: 54.633333%;
+          max-width: 600px;
           float: left;
           clear: left;
         }
@@ -130,9 +133,17 @@ main.has_code_col{
           float: none;
           clear: none;
           margin-right: 15px;
-          margin-left: 56%;
+          margin-left: 57%;
+
           .content-switcher{
             margin-top:0;
+            > ul {
+              margin-bottom: 0;
+            }
+
+            > ul > li {
+               color: @gray-light;
+            }
           }
         }
       }
