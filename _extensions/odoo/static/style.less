@@ -166,13 +166,12 @@ main.index {
       .transition(all .5s @o-ease);
       overflow:hidden;
       span {
-        height: 100%;
-        width: 100%;
         position: relative;
         display: block;
         background-size: cover;
         background-position: 50%;
         will-change: transform;
+        .square(100%);
         .transform(scale3d(1, 1, 1) translate3d(0, 0, 0));
         .transform-origin(50%);
         .opacity(1);
@@ -188,10 +187,9 @@ main.index {
       margin: 0;
       background-color: white;
       font-size: 1.2em;
-      top: 0;
-      position: absolute;
       width: 100%;
       padding: 8px 12px;
+      .o-position-absolute(0);
       .transition(all .5s @o-ease );
     }
 
@@ -342,18 +340,11 @@ main .alert {
     font-family: @headings-font-family;
 
     &:before {
-      font-family: 'Material-Design-Icons';
-      content: "\e639";
-      display: inline-block;
-      text-rendering: geometricPrecision;
-      font-size: 1.6em;
-      transform: translate(0, -0.15em);
-      position: absolute;
-      top: 50%;
-      left: 6px;
+      .mdi-icon("\e639");
+      .o-position-absolute(50%, auto, auto, 6px);
+      .translate(0, -0.15em);
       font-size: 4em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+
       @media (max-width: @screen-sm-min){
         display:none;
       }
