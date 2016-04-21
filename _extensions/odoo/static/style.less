@@ -582,26 +582,27 @@ article.doc-body {
     font-size: 10px;
     padding: 0;
     margin: 0;
-    .opacity(0.6);
     .transition(all .2s ease);
 
     > li {
-      color: lighten(@headings-color, 30%);
+      color: @gray-light;
       font-weight:  @fw_semibold;
-      border-bottom: 1px solid lighten(@doc_code-bg, 30%);
+      border-bottom: 1px solid transparent;
       margin: 5px;
       font-size: 1.3em;
-      .transition(all .2s);
       cursor: pointer;
       display: inline-block;
       list-style: none;
+      .transition(all .2s);
+      .opacity(0.6);
 
       &.active {
         border-bottom: 1px solid @brand-primary;
+        .opacity(1);
       }
     }
   }
-  &:hover > ul {
+  &:hover > ul > li {
     .opacity(1);
   }
   > .tabs > * {
