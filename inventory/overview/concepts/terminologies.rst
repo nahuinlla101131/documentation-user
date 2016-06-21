@@ -2,14 +2,9 @@
 Terminologies
 =============
 
-- **Warehouse**: A warehouse in Odoo is a location where you store
-  products. It is either a physical or a virtual warehouse. It
-  could be a store or a repository.
+- **Warehouse**: Un almacén en Openerp es un lugar donde se almacenan los productos. O bien es un físico o un almacén virtual. Podría ser una tienda o un almacén.
 
-- **Location**: Locations are used to structure storage zones within a
-  warehouse. In addition to internal locations (your warehouse),
-  Odoo has locations for suppliers, customers, inventory loss
-  counter-parts, etc.
+- **Location**: Las ubicaciones se utilizan para estructurar las zonas de almacenamiento dentro de un almacén. Además de lugares internos (el almacén), Openerp tiene lugares para proveedores, clientes, pérdida de inventario contra-partes, etc.
 
 - **Lots**: Lots are a batch of products identified with a unique
   barcode or serial number. All items of a lot are from the same
